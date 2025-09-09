@@ -7,6 +7,6 @@ Team name: Group9
 - Oluwaloseyitowi Oluwateniola Iji
 - Nick Mizero Singizwa
 
-# Github Project board
+# GitHub Projects Scrum board
 https://github.com/users/teniolaiji/projects/2
 
