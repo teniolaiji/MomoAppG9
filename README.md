@@ -1,4 +1,4 @@
-# Momo Analysis App - Team9
+# Momo Analysis App - Group 9
 # Project description
 This fullstack application allows users to input their mobile money (momo) data in xml format for easy sorting, filtering, and analyisis of their transactions. It allows users to turn their messy mobile money data into a clean and easily readable visual format so they can gain greater insights into their short and long-term financial habits. The momo analysis app utilizes comprehensive backend data processing, efficient database manaagement, and a user-friendly frontend interface to achieve this.
 
@@ -10,7 +10,7 @@ This fullstack application allows users to input their mobile money (momo) data 
 5. Export aggregates to data/processed/dashboard.json
 6. Frontend (static) renders charts & tables from the JSON
 
-# Members (Team9)
+# Members (Team: Group 9)
 - Arnold Mutara
 - Oluwaloseyitowi Oluwateniola Iji
 - Nick Mizero Singizwa
