@@ -6,6 +6,8 @@
 - Oluwaloseyitowi Oluwateniola Iji
 - Nick Mizero Singizwa
 
+# Architecture Diagram
+
 # GitHub Projects Scrum board
 https://github.com/users/teniolaiji/projects/2
 
