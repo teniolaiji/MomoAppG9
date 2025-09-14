@@ -14,6 +14,7 @@ This fullstack application allows users to input their mobile money (momo) data 
 - Arnold Mutara
 - Oluwaloseyitowi Oluwateniola Iji
 - Nick Mizero Singizwa
+- Kamara Fidele
 
 # Architecture Diagram
 https://drive.google.com/file/d/1koJgzDUDaavK3rdEAv8I8ypk9dllSeft/view?usp=sharing
