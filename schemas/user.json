@@ -1,0 +1,10 @@
+{
+  "$id": "./user.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "full_name": { "type": "string", "minLength": 1 },
+    "phone_number": { "type": "string" }
+  },
+  "required": ["id", "full_name", "phone_number"]
+}

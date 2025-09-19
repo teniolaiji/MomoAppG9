@@ -1,0 +1,11 @@
+{
+  "$id": "./transaction_user.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "transaction": { "$ref": "./transaction.json" },
+    "user": { "$ref": "./user.json" },
+    "user_role": { "type": "string", "enum": ["sender", "receiver", "payer"] }
+  },
+  "required": ["id", "transaction", "user", "user_role"]
+}

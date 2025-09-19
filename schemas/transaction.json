@@ -1,0 +1,13 @@
+{
+  "$id": "./transaction.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "category": { "$ref": "./transaction_category.json" },
+    "amount": { "type": "number", "exclusiveMinimum": 0 },
+    "date": { "type": "string", "format": "date-time" },
+    "balance_after": { "type": "number", "minimum": 0 },
+    "body": { "type": "string" }
+  },
+  "required": ["id", "category", "amount", "date", "balance_after", "body"]
+}
