@@ -1,0 +1,10 @@
+{
+  "$id": "./system_log.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "action": { "type": "string" },
+    "date_created": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "action", "date_created"]
+}
