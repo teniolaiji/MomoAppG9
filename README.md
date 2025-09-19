@@ -6,7 +6,7 @@ This fullstack application allows users to input their mobile money (momo) data 
 1. Parse XML MoMo SMS raw data
 2. Clean & normalize phone numbers, dates, and amounts
 3. Categorize the transactions 
-4. Load into Database(SQLite)
+4. Load into Database
 5. Export aggregates to data/processed/dashboard.json
 6. Frontend (static) renders charts & tables from the JSON
 
