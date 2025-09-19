@@ -40,3 +40,15 @@ CREATE TABLE system_logs (
     action TEXT,
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX idx_transactions_date 
+    ON transactions(date);
+
+CREATE INDEX idx_transaction_users_transaction_id 
+    ON transaction_users(transaction_id);
+
+CREATE INDEX idx_transaction_users_user_id 
+    ON transaction_users(user_id);
+
+CREATE INDEX idx_transactions_category_id 
+    ON transactions(category_id);
