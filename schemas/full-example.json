@@ -1,0 +1,69 @@
+{
+
+  "full_examples": {
+    "complete_transaction": {
+      "description": "Full transaction with all related data nested - demonstrates JOIN queries serialized to JSON",
+      "example": {
+        "id": 98765,
+        "amount": "25.50",
+        "date": "2024-01-20T14:45:32Z",
+        "balance_after": "1245.75",
+        "body": "Payment for lunch delivery from Mario's Pizza",
+        "category": {
+          "id": 5,
+          "category_type": "food_delivery"
+        },
+        "participants": [
+          {
+            "user": {
+              "id": 12345,
+              "full_name": "Alice Johnson",
+              "phone_number": "+1234567890"
+            },
+            "role": "payer"
+          },
+          {
+            "user": {
+              "id": 67890,
+              "full_name": "Bob Martinez", 
+              "phone_number": "+0987654321"
+            },
+            "role": "receiver"
+          }
+        ]
+      }
+    },
+    "user_with_transactions": {
+      "description": "User entity with embedded recent transactions",
+      "example": {
+        "id": 12345,
+        "full_name": "Alice Johnson",
+        "phone_number": "+1234567890",
+        "recent_transactions": [
+          {
+            "id": 98765,
+            "amount": "25.50",
+            "date": "2024-01-20T14:45:32Z",
+            "body": "Payment for lunch delivery from Mario's Pizza",
+            "role_in_transaction": "payer",
+            "category": {
+              "id": 5,
+              "category_type": "food_delivery"
+            }
+          },
+          {
+            "id": 98764,
+            "amount": "100.00", 
+            "date": "2024-01-19T10:20:15Z",
+            "body": "Received payment from John for shared utilities",
+            "role_in_transaction": "receiver",
+            "category": {
+              "id": 3,
+              "category_type": "utilities"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
