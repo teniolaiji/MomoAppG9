@@ -1,0 +1,131 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Kwizera Jean Bosco",
+      "phone_number": "+250781111111"
+    },
+    {
+      "id": 2,
+      "full_name": "Uwamahoro Aline",
+      "phone_number": "+250782222222"
+    }
+  ],
+  "transaction_categories": [
+    {
+      "id": 1,
+      "category_type": "MOMO_OUT"
+    },
+    {
+      "id": 2,
+      "category_type": "MOMO_IN"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "category": {
+        "id": 1,
+        "category_type": "MOMO_OUT"
+      },
+      "amount": 1000.00,
+      "date": "2024-05-10T16:31:39",
+      "balance_after": 1000.00,
+      "body": "TxId: 73214484437. Your payment of 1,000 RWF to Jane Smith 12845 has been completed at 2024-05-10 16:31:39. Your new balance: 1,000 RWF. Fee was 0 RWF.Kanda*182*16# wiyandikishe muri poromosiyo ya BivaMoMotima, ugire amahirwe yo gutsindira ibihembo bishimishije."
+    },
+    {
+      "id": 2,
+      "category": {
+        "id": 2,
+        "category_type": "MOMO_IN"
+      },
+      "amount": 2000.00,
+      "date": "2024-05-10T16:30:51",
+      "balance_after": 2000.00,
+      "body": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Message from sender: . Your new balance:2000 RWF. Financial Transaction Id: 76662021700."
+    }
+  ],
+  "transaction_users": [
+    {
+      "id": 1,
+      "transaction": {
+        "id": 1,
+        "category": {
+          "id": 1,
+          "category_type": "MOMO_OUT"
+        },
+        "amount": 1000.00,
+        "date": "2024-05-10T16:31:39",
+        "balance_after": 1000.00,
+        "body": "TxId: 73214484437. Your payment of 1,000 RWF to Jane Smith 12845 has been completed at 2024-05-10 16:31:39. Your new balance: 1,000 RWF. Fee was 0 RWF.Kanda*182*16# wiyandikishe muri poromosiyo ya BivaMoMotima, ugire amahirwe yo gutsindira ibihembo bishimishije."
+      },
+      "user": {
+        "id": 1,
+        "full_name": "Kwizera Jean Bosco",
+        "phone_number": "+250781111111"
+      },
+      "user_role": "sender"
+    },
+    {
+      "id": 2,
+      "transaction": {
+        "id": 1,
+        "category": {
+          "id": 1,
+          "category_type": "MOMO_OUT"
+        },
+        "amount": 2000.00,
+        "date": "2024-05-10T16:30:51",
+        "balance_after": 2000.00,
+        "body": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Message from sender: . Your new balance:2000 RWF. Financial Transaction Id: 76662021700."
+      },
+      "user": {
+        "id": 2,
+        "full_name": "Uwamahoro Aline",
+        "phone_number": "+250782222222"
+      },
+      "user_role": "receiver"
+    }
+  ],
+  "system_logs": [
+    {
+      "id": 1,
+      "action": "Imported transactions from XML",
+      "date_created": "2025-09-01T12:00:00"
+    },
+    {
+      "id": 2,
+      "action": "Exported transactions to JSON",
+      "date_created": "2025-09-01T12:05:00"
+    }
+  ],
+  "complete_transaction_example": {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "category_type": "MOMO_OUT"
+    },
+    "amount": 15000.00,
+    "date": "2025-09-01T10:15:00",
+    "balance_after": 85000.00,
+    "body": "Sent 15000 RWF to 250782222222",
+    "transaction_users": [
+      {
+        "user": {
+          "id": 1,
+          "full_name": "Kwizera Jean Bosco",
+          "phone_number": "+250781111111"
+        },
+        "role": "sender"
+      },
+      {
+        "user": {
+          "id": 2,
+          "full_name": "Uwamahoro Aline",
+          "phone_number": "+250782222222"
+        },
+        "role": "receiver"
+      }
+    ]
+  }
+}
