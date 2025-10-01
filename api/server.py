@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 import base64
 import urllib.parse
 import json
@@ -52,6 +49,8 @@ class APIHandler(BaseHTTPRequestHandler):
             return
 
         path = urllib.parse.urlparse(self.path).path
+
+        print("Received GET request for path:", path)
 
         if path == '/transactions':
             self._send_response(200, transactions)
@@ -117,8 +116,73 @@ class APIHandler(BaseHTTPRequestHandler):
         dump_transactions()
         self._send_response(201, new_transaction)
 
+
+    def do_PUT(self):
+        if not self.authorize_user():
+            return
+
+        path = urllib.parse.urlparse(self.path).path
+        if not path.startswith('/transactions/'):
+            self._send_response(404, {"message": "Not Found"})
+            return
+
+        try:
+            transaction_id = int(path.split('/')[-1])
+        except:
+            self._send_response(400, {"message": "Invalid ID"})
+            return
+
+        content_length = int(self.headers['Content-Length'])
+        put_data = self.rfile.read(content_length)
+
+        try:
+            transaction = json.loads(put_data)
+        except:
+            self._send_response(400, {"message": "Invalid JSON"})
+            return
+
+        for txn in transactions:
+            if txn['id'] == transaction_id:
+                if 'timestamp' in transaction:
+                    txn['timestamp'] = transaction['timestamp']
+                if 'amount' in transaction:
+                    txn['amount'] = transaction['amount']
+                if 'sender' in transaction:
+                    txn['sender'] = transaction['sender']
+                if 'receiver' in transaction:
+                    txn['receiver'] = transaction['receiver']
+                dump_transactions()
+                self._send_response(200, {"message": "Updated"})
+                return
+
+        self._send_response(404, {"message": "Not found"})
+
+    def do_DELETE(self):
+        if not self.authorize_user():
+            return
+
+        path = urllib.parse.urlparse(self.path).path
+        if not path.startswith('/transactions/'):
+            self._send_response(404, {"message": "Not Found"})
+            return
+
+        try:
+            transaction_id = int(path.split('/')[-1])
+        except:
+            self._send_response(400, {"message": "Invalid ID"})
+            return
+
+        for txn in transactions:
+            if txn['id'] == transaction_id:
+                transactions.remove(txn)
+                dump_transactions()
+                self._send_response(200, {"message": "Deleted"})
+                return
+
+        self._send_response(404, {"message": "Not found"})    
+
+
 if __name__ == '__main__':
     server = HTTPServer(('localhost', 8080), APIHandler)
     print("Server started at http://localhost:8080")
     server.serve_forever()
->>>>>>> Stashed changes
