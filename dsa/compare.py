@@ -371,6 +371,5 @@ dict_time = timeit.repeat(
 
 print("avg time list:", sum(list_time)/len(list_time))
 print("avg time dict:", sum(dict_time)/len(dict_time))
-print(list_time)
-print(dict_time)
+
 print(list_time > dict_time)
