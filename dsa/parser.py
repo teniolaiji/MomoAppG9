@@ -42,3 +42,56 @@ def parse_transactions(raw_xml_data_path):
         ts_match = timestamp_pattern.search(body)
         if ts_match is not None:
             record["timestamp"] = ts_match.group(1)
+        # classifying records by transaction type
+        if "you have received" in body_lower:
+            record["transaction_type"] = "MOMO_IN"
+            match = MOMO_IN.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+                record["sender"] = match.group(2)
+
+        elif "transferred to" in body_lower:
+            record["transaction_type"] = "MOMO_OUT"
+            match = MOMO_OUT.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+                record["receiver"] = match.group(2)
+
+        elif "deposit of" in body_lower:
+            record["transaction_type"] = "BANK_DEPOSIT"
+            match = BANK_DEPOSIT.search(body)
+            if match:
+                record["amount"] = int(match.group(1))
+                record["sender"] = "Own Account"
+
+        elif "your payment of" in body_lower and "airtime" not in body_lower and "cash power" not in body_lower:
+            record["transaction_type"] = "MERCHANT_PAYMENT"
+            match = MERCHANT_PAYMENT.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+                record["receiver"] = match.group(2)
+
+        elif "airtime" in body_lower or "cash power" in body_lower:
+            record["transaction_type"] = "AIRTIME_OR_UTILITIES"
+            match = AIRTIME_OR_UTILITIES.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+
+        elif "withdrawn" in body_lower and "agent" in body_lower:
+            record["transaction_type"] = "AGENT_WITHDRAWAL"
+            match = AGENT_WITHDRAWAL.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+                record["receiver"] = match.group(2)
+
+        elif "transaction of" in body_lower and "by" in body_lower:
+            record["transaction_type"] = "BUSINESS_PAYMENT"
+            match = BUSINESS_PAYMENT.search(body)
+            if match:
+                record["amount"] = int(match.group(1).replace(",", ""))
+                record["receiver"] = match.group(2)
+        else:
+            continue  
+        transactions.append(record)
+        transaction_id += 1
+    return transactions 
