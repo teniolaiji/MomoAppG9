@@ -26,3 +26,6 @@ https://drive.google.com/file/d/1iI86_UUkJ7xXtn_4tbL9-UDn8-yyeFSd/view?usp=shari
 
 # Running the application
 python -m app.server
+
+# Running Lookup Comparison
+python ./dsa/compare.py
