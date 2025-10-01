@@ -19,3 +19,26 @@ def parse_transactions(raw_xml_data_path):
     AGENT_WITHDRAWAL = re.compile(r"withdrawn (\d+) RWF.*?via agent: (.+?) ")
     BUSINESS_PAYMENT = re.compile(r"transaction of (\d+) RWF by (.+?) ")
     timestamp_pattern = re.compile(r"at (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})")
+
+# initialize list to store all parsed records as dictionaries
+    transactions = []
+    transaction_id = 1
+
+# loop through sms record
+    for sms in root:
+
+        body = sms.attrib.get('body')
+        record = {
+            "id": transaction_id,
+            "transaction_type": None,
+            "amount": None,
+            "sender": None,
+            "receiver": None,
+            "timestamp": None,
+            "raw_text": body
+        }
+
+        body_lower = body.lower()
+        ts_match = timestamp_pattern.search(body)
+        if ts_match is not None:
+            record["timestamp"] = ts_match.group(1)
