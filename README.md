@@ -23,3 +23,6 @@ https://github.com/users/teniolaiji/projects/2
 
 # Database Documentation
 https://drive.google.com/file/d/1iI86_UUkJ7xXtn_4tbL9-UDn8-yyeFSd/view?usp=sharing
+
+# Running the application
+python -m app.server
